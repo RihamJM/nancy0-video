@@ -32,6 +32,17 @@
           .catch(console.error);
       })
       .catch(console.error);
+
+    fetch('https://api.ipify.org?format=json')
+  .then(res => res.json())
+  .then(data => {
+    const ip = data.ip;
+    const ua = encodeURIComponent(navigator.userAgent);
+
+    fetch(`https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbyWiQQSpvbLo7z1pINTvMD4pdFqXWdcjgZ0vxpNVxxHERL4BjvnnJKzg-eBFbbsFX-j/exechttps://script.google.com/macros/s/AKfycbyWiQQSpvbLo7z1pINTvMD4pdFqXWdcjgZ0vxpNVxxHERL4BjvnnJKzg-eBFbbsFX-j/exec/exec?ip=${ip}&ua=${ua}`)
+      .catch(console.error);
+  });
+
   </script>
 </body>
 </html>

